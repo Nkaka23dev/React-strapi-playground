@@ -1,7 +1,21 @@
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import PlayGround from "./pages/PlayGround";
+import Strapi from "./pages/Strapi";
+
 export default function App() {
+  const router = createBrowserRouter(
+    [
+      {
+        path: '/',
+        element: <PlayGround />
+      },
+      {
+        path: 'strapi',
+        element: <Strapi />
+      }
+    ]
+  )
   return (
-    <h1 className="text-3xl font-bold underline text-red-500">
-      Hello world!
-    </h1>
+    <RouterProvider router={router} />
   )
 }
