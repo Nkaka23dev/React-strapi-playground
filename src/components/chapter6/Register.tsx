@@ -38,6 +38,13 @@ const TextPlaceholder = () => (
 export default function Register() {
   const [isCompany1, setIsCompany1] = useState(false);
   const [isCompany2, setIsCompany2] = useState(false);
+  const [isCompany3, setIsCompany3] = useState(false);
+
+  const [handling, setHandling] = useState(false);
+
+  const handThis = () => {
+    setHandling(!handling);
+  };
 
   return (
     <div className="">
@@ -78,15 +85,17 @@ export default function Register() {
             <input
               className="px-3"
               type="checkbox"
-              onChange={() => setIsCompany2(!isCompany2)}
+              onChange={() => setIsCompany3(!isCompany3)}
             />
             Check if you're a company
           </label>
-          {isCompany2 ? (
+          {isCompany3 ? (
             <Input
               className="py-4 px-4 border border-gray-500 w-full outline-0"
               label="Company Tax Id"
               placeholder="Enter 12 digits"
+              //these keys are added  to make sure that when react remove element it does't get confuse since all  element has type: Input, key also is there to show that element  or componet are not the same and should not be reused.
+              // key="company-tax-id"
               onChange={() => {}}
               id="company-tax-id"
             />
@@ -96,10 +105,44 @@ export default function Register() {
               label="Person Tax Id"
               placeholder="Enter 8 digits and 3 letters"
               onChange={() => {}}
+              //
+              // key="person-tax-id"
               id="person-tax-id"
             />
           )}
         </div>
+        {/* Updated version with best practice*/}
+        <div className="column">
+          <h4 className="mb-1">Input will re-render</h4>
+          <label className="space-y-4">
+            <input
+              className="px-3"
+              type="checkbox"
+              onChange={() => setIsCompany2(!isCompany2)}
+            />
+            If you are registering as a company click here
+          </label>
+          {isCompany2 ? (
+            <Input
+              className="py-4 px-4 border border-gray-500 w-full outline-0"
+              label="Company Tax Id"
+              placeholder="Enter 12 digits"
+              onChange={() => {}}
+              id="company-tax-id"
+            />
+          ) : null}
+
+          {!isCompany1 ? (
+            <Input
+              className="py-4 px-4 border border-green-500 w-full outline-0"
+              label="Person Tax Id"
+              placeholder="Enter 8 digits and 3 letters"
+              onChange={() => {}}
+              id="person-tax-id"
+            />
+          ) : null}
+        </div>
+        <button onClick={handThis}>Flip it</button>
       </div>
     </div>
   );
