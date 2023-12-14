@@ -6,7 +6,7 @@ import ScrollableComponentWithMovingBlock from "../components/ScrollableComponen
 // import ButtonWithModelDialoge from "../components/ButtonWithModelDialoge";
 import { VerySlowComponent } from "../components/VerySlowComponent";
 import ButtonsPage from "../components/chapter2/ButtonsPage";
-import Register from "../components/chapter6/Register";
+// import Register from "../components/chapter6/Register";
 // import ModalDialog from "../components/chapter2/ModalDialog";
 import { AnotherStuff, BunchOfStuff } from "../components/mocks/Mocks";
 // import { useButtonModal } from "../hooks/useButtonModal";
@@ -41,7 +41,7 @@ export default function PlayGround() {
         {/* <ModalDialog /> */}
       </div>
       <div className="max-w-4xl mx-auto border border-gray-100">
-        <Register />
+        {/* <Register /> */}
       </div>
     </>
   );
