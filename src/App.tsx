@@ -3,19 +3,15 @@ import PlayGround from "./pages/PlayGround";
 import Strapi from "./pages/Strapi";
 
 export default function App() {
-  const router = createBrowserRouter(
-    [
-      {
-        path: '/',
-        element: <PlayGround />
-      },
-      {
-        path: 'strapi',
-        element: <Strapi />
-      }
-    ]
-  )
-  return (
-    <RouterProvider router={router} />
-  )
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <PlayGround />,
+    },
+    {
+      path: "strapi",
+      element: <Strapi />,
+    },
+  ]);
+  return <RouterProvider router={router} />;
 }
