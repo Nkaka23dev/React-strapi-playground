@@ -1,47 +1,34 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-// import BasicModalDialog from "../components/BasicModalDialog";
-// import Button from "../components/Button";
-
-import ScrollableComponentWithMovingBlock from "../components/ScrollableComponentWithMovingBlock";
-// import ButtonWithModelDialoge from "../components/ButtonWithModelDialoge";
-import { VerySlowComponent } from "../components/VerySlowComponent";
-import ButtonsPage from "../components/chapter2/ButtonsPage";
-import Register from "../components/chapter6/Register";
-// import ModalDialog from "../components/chapter2/ModalDialog";
-import { AnotherStuff, BunchOfStuff } from "../components/mocks/Mocks";
-// import { useButtonModal } from "../hooks/useButtonModal";
+// import { useEffect, useState } from "react";
+import Ref3 from "../components/chapter9/Ref3";
 
 export default function PlayGround() {
-  console.log("Rerender in roots component");
-  // const { isOpen, open, close } = useButtonModal();
-  // const content = (
-  //   <>
-  // <VerySlowComponent />
-  // <BunchOfStuff />
-  // <AnotherStuff />
-  //   </>
-  // );
+  // const [count, setCount] = useState(0);
+
+  // useEffect(() => {
+  //   const id = setInterval(() => {
+  //     setCount((count) => count + 1);
+  //   }, 1000);
+  //   return () => clearInterval(id);
+  // }, []);
   return (
     <>
+      <div className="max-w-4xl mx-auto border border-gray-100"></div>
       <div className="max-w-4xl mx-auto border border-gray-100">
-        {/* I created button component because state that toggled the model was here
-      wiht all the logic and cousing a re-render which made it to slow */}
-        {/* <ButtonWithModelDialoge /> */}
-        {/* <Button onClick={open}>click Me!</Button>
-      {isOpen && <BasicModalDialog handleOpen={close} />} */}
-        {/* the above modal trigerring was implemented using custom hooks,look like
-      our re-rendering is not happening but it is.  thou the code*/}
-        {/* <ScrollableComponentWithMovingBlock content={content} /> */}
-        <ScrollableComponentWithMovingBlock>
-          <VerySlowComponent />
-          <BunchOfStuff />
-          <AnotherStuff />
-        </ScrollableComponentWithMovingBlock>
-        <ButtonsPage />
-        {/* <ModalDialog /> */}
-      </div>
-      <div className="max-w-4xl mx-auto border border-gray-100">
-        <Register />
+        {/* <div>
+          <p className="p-10 text-4xl">You Clicked {count} times</p>
+        </div> */}
+        {/* <Register /> */}
+        <div className="flex justify-between items-center">
+          {/* <button
+            onClick={handleAlertClick}
+            className="text-lg bg-blue-500 rounded-md duration-300 hover:bg-blue-700 text-white font-semibold py-3 px-10"
+          >
+            Show Alert
+          </button> */}
+        </div>
+        {/* <Ref /> */}
+        {/* <Ref2 /> */}
+        <Ref3 />
       </div>
     </>
   );
