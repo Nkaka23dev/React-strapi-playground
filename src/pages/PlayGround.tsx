@@ -1,20 +1,22 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
+import Ref3 from "../components/chapter9/Ref3";
 
 export default function PlayGround() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    const id = setInterval(() => {
-      setCount((c) => c + 1);
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
+  // const [count, setCount] = useState(0);
+
+  // useEffect(() => {
+  //   const id = setInterval(() => {
+  //     setCount((count) => count + 1);
+  //   }, 1000);
+  //   return () => clearInterval(id);
+  // }, []);
   return (
     <>
       <div className="max-w-4xl mx-auto border border-gray-100"></div>
       <div className="max-w-4xl mx-auto border border-gray-100">
-        <div>
+        {/* <div>
           <p className="p-10 text-4xl">You Clicked {count} times</p>
-        </div>
+        </div> */}
         {/* <Register /> */}
         <div className="flex justify-between items-center">
           {/* <button
@@ -24,6 +26,9 @@ export default function PlayGround() {
             Show Alert
           </button> */}
         </div>
+        {/* <Ref /> */}
+        {/* <Ref2 /> */}
+        <Ref3 />
       </div>
     </>
   );

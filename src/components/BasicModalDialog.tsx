@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export default function BasicModalDialog({ handleOpen }: any) {
+export default function BasicModalDialog({ handleOpen, isOpen }: any) {
   return (
     <div className="h-screen grid w-full bg-gray-400  opacity-80 fixed inset-0">
       <div className="max-w-2xl w-full m-auto bg-white px-10">
@@ -14,7 +14,7 @@ export default function BasicModalDialog({ handleOpen }: any) {
         </div>
         <div className="py-2">
           <button
-            onClick={handleOpen}
+            onClick={() => handleOpen(!isOpen)}
             className="py-1 px-4 text-white bg-blue-500 hover:bg-blue-700 duration-500"
           >
             Close
