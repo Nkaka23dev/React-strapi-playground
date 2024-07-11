@@ -1,6 +1,6 @@
 // import { useEffect, useState } from "react";
 
-import CopilotComponent from "../components/CopilotComponent";
+import RenderProps from "../designPattern/RenderProps/RenderProps";
 
 export default function PlayGround() {
   // const [count, setCount] = useState(0);
@@ -36,7 +36,9 @@ export default function PlayGround() {
       {/* <div className="max-w-7xl mx-auto h-96 bg-red-700 grid">
         <Child />
       </div> */}
-      <CopilotComponent />
+      {/* <CopilotComponent /> */}
+      {/* <HOCPattern /> */}
+      <RenderProps />
     </>
   );
 }
