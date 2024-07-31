@@ -1,6 +1,6 @@
 // import { useEffect, useState } from "react";
 
-import RenderProps from "../designPattern/RenderProps/RenderProps";
+import HOCHome from "../designPattern/Hoc/HOCHome";
 
 export default function PlayGround() {
   // const [count, setCount] = useState(0);
@@ -38,7 +38,7 @@ export default function PlayGround() {
       </div> */}
       {/* <CopilotComponent /> */}
       {/* <HOCPattern /> */}
-      <RenderProps />
+      <HOCHome />
     </>
   );
 }

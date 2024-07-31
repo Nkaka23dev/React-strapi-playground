@@ -1,28 +1,33 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { forwardRef, Ref } from "react";
-import withDimensions from "./WithDimensions";
+import withDimensions, { DimensionsProps } from "./WithDimensions";
 
-export type Comp1Props = {
-  width: any;
-  height: any;
-  ref: Ref<any>;
-  adProps: string;
-};
-
-function Comp1({ width, height, adProps }: Comp1Props, ref: any) {
+function Comp(
+  { width, height, name }: Omit<DimensionsProps, "ref">,
+  ref: Ref<HTMLDivElement>
+) {
   return (
-    <div ref={ref} className="border-red-600 border-4 h-[140px] w-[401px]">
-      <h1>Hey I Comp1</h1>
+    <div>
+      <h1 className="text-lg font-semibold py-4 text-red-800">
+        Element 1 width & height
+      </h1>
+      <div
+        ref={ref}
+        className="w-[40rem] h-[10rem] border-red-500 border-4 p-5"
+      >
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam
+        doloribus cum blanditiis culpa, nihil voluptatem optio corporis sapiente
+        adipisci accusamus!
+      </div>
       <p>
-        My width is: <b className="text-blue-500">{width}</b>
+        Width is: <b className="text-red-800">{width} px</b>
+        <hr />
+        Height is: <b className="text-red-800">{height} px</b>
+        <br />
+        Other PROPS: <b className="text-green-800">{name} </b>
       </p>
-      <p>
-        My Height is: <b className="text-blue-500">{height}</b>
-      </p>
-      <b>Checks::::{adProps}</b>
     </div>
   );
 }
 
-const NewComp1 = withDimensions(forwardRef(Comp1));
-export default NewComp1;
+const Comp1 = withDimensions(forwardRef(Comp));
+export default Comp1;

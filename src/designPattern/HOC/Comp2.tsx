@@ -1,16 +1,35 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { forwardRef } from "react";
-import { Comp1Props } from "./Comp1";
-import withDimensions from "./WithDimensions";
+import { forwardRef, Ref } from "react";
+import withDimensions, { DimensionsProps } from "./WithDimensions";
 
-function Comp2({ width, height }: Comp1Props, ref: any) {
+function Comp(
+  { width, height }: Omit<DimensionsProps, "ref">,
+  ref: Ref<HTMLDivElement>
+) {
   return (
-    <div ref={ref} className="border-8 border-green-600">
-      <h1 className="">Height is:: {height}</h1>
-      <h1>Width is:: {width}</h1>
+    <div>
+      <h1 className="text-lg font-semibold py-4 text-blue-800">
+        Element 2 width & height
+      </h1>
+      <div
+        ref={ref}
+        className="w-[35rem] min-h-[1px] border-blue-500 border-4 p-5"
+      >
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam
+        doloribus cum blanditiis culpa, nihil voluptatem optio corporis sapiente
+        adipisci accusamus! Lorem ipsum, dolor sit amet consectetur adipisicing
+        elit. Dolorem, nostrum! Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Et commodi, quia, ullam nobis repellendus, velit
+        magnam nam animi voluptatibus error quibusdam magni! Reprehenderit nemo
+        facilis quisquam maxime illum culpa ratione?
+      </div>
+      <p>
+        Width is: <b className="text-blue-800">{width} px</b>
+        <hr />
+        Height is: <b className="text-blue-800">{height} px</b>
+      </p>
     </div>
   );
 }
 
-const Comp2HOC = withDimensions(forwardRef(Comp2));
-export default Comp2HOC;
+const Comp2 = withDimensions(forwardRef(Comp));
+export default Comp2;

@@ -1,20 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ComponentType, useEffect, useRef, useState } from "react";
+import { LegacyRef, useEffect, useRef, useState } from "react";
 
-export default function withDimensions(Element: ComponentType<any>) {
-  return function WithDimension(props: any) {
-    const [height, setHeight] = useState(null);
-    const [width, setWidth] = useState(null);
+export type DimensionsProps = {
+  width: number;
+  height: number;
+  ref: LegacyRef<HTMLElement>;
+  name: string;
+};
 
-    const compRef = useRef<any>();
+export default function withDimensions(Component: any) {
+  return function WithDimensions(props: any) {
+    const [width, setWidth] = useState(0);
+    const [height, setHeight] = useState(0);
+
+    const refValue = useRef<HTMLElement>(null);
 
     useEffect(() => {
-      if (compRef.current) {
-        setWidth(compRef.current.offsetWidth);
-        setHeight(compRef.current.offsetHeight);
+      if (refValue.current) {
+        setWidth(refValue.current.offsetWidth);
+        setHeight(refValue.current.offsetHeight);
       }
-    }, [compRef]);
+    }, []);
 
-    return <Element ref={compRef} height={height} width={width} {...props} />;
+    return (
+      <Component ref={refValue} width={width} height={height} {...props} />
+    );
   };
 }
